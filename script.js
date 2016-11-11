@@ -1,6 +1,6 @@
 var Show = React.createClass({
 
-  componentWillMount: function(){
+  getInitialState: function(){
     var data = [
       {"category": "Talent", "data": [
         {"name":"Jim Parsons ", "price":100, "category": "talent", "on": false },
@@ -195,27 +195,25 @@ var Show = React.createClass({
       ]}
     ]
 
-    store.set("data", data)
-    store.set("total", 0)
+    return({
+      "data": data,
+      "total": 0
+    })
   }, // getInitialState
 
   clear: function(){
     // clear out everything in the store
-    var data = store.get("data")
+    var data = this.state.data
     data.forEach(function(category, i){
       category.data.forEach(function(item, i){
         item.on = false
       })
     })
-    store.set("data", data)
 
-    // reset the total
-    $("#total").text(0)
-    $("#total").removeClass("overBudget")
-    store.set("total", 0)
-
-    //rerender everything
-    this.forceUpdate()
+    this.setState({
+      "data": data,
+      "total": 0
+    })
   },
 
   eachCategory: function(category, i){
@@ -231,21 +229,20 @@ var Show = React.createClass({
   },
 
   render: function(){
-    console.log("render!!")
     console.log(store.get("total"))
     return(
       <div className="container">
         <div className="row">
           <div className="col-xs-12 col-md-6">
             <div className="well">
-            {store.get("data").map(this.eachCategory)}
+            {this.state.data.map(this.eachCategory)}
             </div>
           </div>
 
           <div className="col-xs-12 col-md-6">
             <div className="well fixed">
               <h3>Total Price</h3>
-              <h3 id="total">{store.get("total")} </h3>
+              <h3 id="total">{this.state.total} </h3>
               <button
                 className="btn btn-lg btn-danger"
                 onClick={this.clear}
@@ -313,33 +310,38 @@ var Category = React.createClass({
 
 var Item = React.createClass({
 
-  setTotal: function(total){
-    $("#total").text(total)
-
-    if (total <= 250){
-      $("#total").removeClass("overBudget")
-    } else {
-      $("#total").addClass("overBudget")
-    }
-
+  getInitialState: function(){
+    return({
+      "checked": false
+    })
   },
 
-  toggleState: function(){
-    // update the store
-    var data = store.get("data")
-    var record = data[this.props.categoryId].data[this.props.id]
-    record.on = !record.on
-    store.set("data", data)
+  setTotal: function(total){
+    ("#total").text(total)
+  },
 
-    // change the total
-    var total = store.get("total")
-    if (record.on){
-      total += record.price
-    } else {
-      total -= record.price
-    }
-    store.set("total", total)
-    this.setTotal(total)
+  handleClick: function(){
+    // update total, use store to hold state
+
+    //update state of check box
+    console.log(this.props.data.price)
+
+    // var curChecked = this.state.checked
+    //
+    //
+    // var total = store.get("total")
+    //
+    // var total = store.get("total")
+    // if (!curChecked){
+    //   total += record.price
+    // } else {
+    //   total -= record.price
+    // }
+    // store.set("total", total)
+    // this.setTotal(total)
+    // this.setState({
+    //   "checked": !curChecked
+    // })
   },
 
   render: function(){
@@ -348,8 +350,8 @@ var Item = React.createClass({
         <label>{this.props.data.name}</label>
         	<input
             type="checkbox"
-            checked={this.props.on}
-            onClick={this.toggleState}
+            checked={this.state.checked}
+            onClick={this.handleClick}
           >
           </input>
       </div>
