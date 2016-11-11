@@ -321,6 +321,17 @@ var Show = React.createClass({
                 > Clear All
               </button>
               <div>{this.state.data.map(this.eachCategorySummary)}</div>
+              <div>
+                <h3>What is this?</h3>
+                <p>
+                  This is an app to accompany the blog post
+                  <a href="https://theringer.com/you-can-make-the-next-great-tv-show-heres-how-ad9c56e14ef1#.pln871rg4"> You Can Make the Next Great TV Show — Here’s How</a>
+                </p>
+
+                <p>
+                  <a href="https://github.com/jstoebel/great_tv">Contributions welcome!</a>
+                </p>
+              </div>
             </div>
           </div>
 
