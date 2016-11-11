@@ -1,6 +1,11 @@
 var Show = React.createClass({
 
+  componentDidMount: function(){
+    store.set("total", 0)
+  },
+
   getInitialState: function(){
+
     var data = [
       {"category": "Talent", "data": [
         {"name":"Jim Parsons ", "price":100, "category": "talent", "on": false },
@@ -175,7 +180,7 @@ var Show = React.createClass({
         {"name":"Other book/comic IP ", "price":50,"category":"Pre-existing Intellectual Property","on": false},
         {"name":"IP miscellany ", "price":50,"category":"Pre-existing Intellectual Property","on": false},
       ]},
-      {"cateogry": "Misc", "data": [
+      {"category": "Misc", "data": [
         {"name":"Off-the-board actor (e.g., Denzel Washington, Meryl Streep, etc.) ", "price":150,"category":"Misc","on": false},
         {"name":"Name director ", "price":80,"category":"Misc","on": false},
         {"name":"Name director (pilot-only)", "price":5,"category":"Misc","on": false},
@@ -195,24 +200,57 @@ var Show = React.createClass({
       ]}
     ]
 
+    // mock version!
+    // var data = [
+    //   {"category": "Misc", "data": [
+    //     {"name":"Off-the-board actor (e.g., Denzel Washington, Meryl Streep, etc.) ", "price":150,"category":"Misc","on": false},
+    //   ]}
+    // ]
+
     return({
       "data": data,
       "total": 0
     })
+
   }, // getInitialState
 
   clear: function(){
     // clear out everything in the store
     var data = this.state.data
-    data.forEach(function(category, i){
-      category.data.forEach(function(item, i){
+    for (var i=0; i< data.length; i++){
+      var catData = data[i].data;
+      for (var j=0; j<catData.length; j++){
+        var item = catData[j];
         item.on = false
-      })
-    })
+      }
+    }
 
     this.setState({
       "data": data,
       "total": 0
+    })
+  },
+
+  setTotal: function(value){
+    // change the value of total here!
+    // value(int): value to add to current total (use negative number tos subtract)
+
+    var total = this.state.total;
+    total += value
+    this.setState({
+      "total": total
+    })
+  },
+
+  setChecked: function(catId, itemId, state){
+    // itemId: id of item.
+    // catId: id of category
+    // state: state checkbox should be set to
+
+    var data = this.state.data;
+    data[catId].data[itemId].on = state
+    this.setState({
+      "data": data
     })
   },
 
@@ -223,13 +261,47 @@ var Show = React.createClass({
         id={i}
         data={category.data}
         name={category.category}
+        callBackShow={this.setTotal}
+        callBackCheck={this.setChecked}
       >
       </Category>
     )
   },
 
+  eachItemSummary: function(item, i){
+    if (item.on){
+      return(
+        <li key={i}>{item.name}</li>
+      )
+    }
+  },
+
+  eachCategorySummary: function(category, i){
+    // prints each choice in a category
+
+    // are any items in this category select?
+    var selectedItems = category.data.filter(function(item, i){
+      return item.on
+    })
+
+    if (selectedItems.length > 0){
+      return (
+        <div
+          key={i}
+        >
+          <h3>{category.category}</h3>
+          <ul>
+          {category.data.map(this.eachItemSummary)}
+          </ul>
+        </div>
+      )
+    }
+
+  },
+
   render: function(){
-    console.log(store.get("total"))
+
+    console.log("render show")
     return(
       <div className="container">
         <div className="row">
@@ -242,12 +314,13 @@ var Show = React.createClass({
           <div className="col-xs-12 col-md-6">
             <div className="well fixed">
               <h3>Total Price</h3>
-              <h3 id="total">{this.state.total} </h3>
+              <h3 id="total" className={this.state.total <= 250 ? "" : "overBudget"}>{this.state.total} </h3>
               <button
                 className="btn btn-lg btn-danger"
                 onClick={this.clear}
                 > Clear All
               </button>
+              <div>{this.state.data.map(this.eachCategorySummary)}</div>
             </div>
           </div>
 
@@ -271,6 +344,7 @@ var Category = React.createClass({
 
   eachItem: function(item, i){
 
+    console.log("item.on="+item.on)
     return(
       <Item
         index={i}
@@ -278,6 +352,9 @@ var Category = React.createClass({
         categoryId={this.props.id}
         id={i}
         data={item}
+        callBackShow={this.props.callBackShow}
+        callBackCheck={this.props.callBackCheck}
+        checked={item.on}
       >
       </Item>
     )
@@ -310,48 +387,33 @@ var Category = React.createClass({
 
 var Item = React.createClass({
 
-  getInitialState: function(){
-    return({
-      "checked": false
-    })
-  },
-
-  setTotal: function(total){
-    ("#total").text(total)
-  },
-
   handleClick: function(){
-    // update total, use store to hold state
 
     //update state of check box
-    console.log(this.props.data.price)
+    var curChecked = this.props.checked
 
-    // var curChecked = this.state.checked
-    //
-    //
-    // var total = store.get("total")
-    //
-    // var total = store.get("total")
-    // if (!curChecked){
-    //   total += record.price
-    // } else {
-    //   total -= record.price
-    // }
-    // store.set("total", total)
-    // this.setTotal(total)
-    // this.setState({
-    //   "checked": !curChecked
-    // })
+    var price = this.props.data.price
+    if (curChecked) {
+      // on -> off
+      this.props.callBackShow(-1 * price)
+    } else {
+      // off -> on
+      this.props.callBackShow(price)
+    }
+    this.props.callBackCheck(this.props.categoryId, this.props.id, !curChecked)
+
   },
 
   render: function(){
+
+    console.log(this.props.on)
     return (
       <div className="item">
         <label>{this.props.data.name}</label>
         	<input
             type="checkbox"
-            checked={this.state.checked}
-            onClick={this.handleClick}
+            checked={this.props.checked}
+            onChange={this.handleClick}
           >
           </input>
       </div>
