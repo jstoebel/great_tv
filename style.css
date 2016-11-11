@@ -45,3 +45,7 @@ div.panel.show {
     width:100%;
     z-index:100;
 }
+
+.overBudget{
+    color: red;
+}

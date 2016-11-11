@@ -1,6 +1,4 @@
-console.log(store.enabled)
-
-var App = React.createClass({
+var Show = React.createClass({
 
   componentWillMount: function(){
     var data = [
@@ -201,6 +199,25 @@ var App = React.createClass({
     store.set("total", 0)
   }, // getInitialState
 
+  clear: function(){
+    // clear out everything in the store
+    var data = store.get("data")
+    data.forEach(function(category, i){
+      category.data.forEach(function(item, i){
+        item.on = false
+      })
+    })
+    store.set("data", data)
+
+    // reset the total
+    $("#total").text(0)
+    $("#total").removeClass("overBudget")
+    store.set("total", 0)
+
+    //rerender everything
+    this.forceUpdate()
+  },
+
   eachCategory: function(category, i){
     return(
       <Category
@@ -214,8 +231,8 @@ var App = React.createClass({
   },
 
   render: function(){
-
-    console.log("render app!")
+    console.log("render!!")
+    console.log(store.get("total"))
     return(
       <div className="container">
         <div className="row">
@@ -228,7 +245,12 @@ var App = React.createClass({
           <div className="col-xs-12 col-md-6">
             <div className="well fixed">
               <h3>Total Price</h3>
-              <h3 id="total">{store.get("total")}</h3>
+              <h3 id="total">{store.get("total")} </h3>
+              <button
+                className="btn btn-lg btn-danger"
+                onClick={this.clear}
+                > Clear All
+              </button>
             </div>
           </div>
 
@@ -241,17 +263,12 @@ var App = React.createClass({
 
 var Category = React.createClass({
 
-  spam: function(){
-    console.log("hello from Category!")
-  },
-
   getInitialState: function(){
     return({"open": false})
   },
 
   openPanel: function(){
     var isOpen = this.state.open
-    console.log(isOpen)
     this.setState({"open": !isOpen})
   },
 
@@ -298,6 +315,13 @@ var Item = React.createClass({
 
   setTotal: function(total){
     $("#total").text(total)
+
+    if (total <= 250){
+      $("#total").removeClass("overBudget")
+    } else {
+      $("#total").addClass("overBudget")
+    }
+
   },
 
   toggleState: function(){
@@ -319,7 +343,6 @@ var Item = React.createClass({
   },
 
   render: function(){
-    console.log("render item!")
     return (
       <div className="item">
         <label>{this.props.data.name}</label>
@@ -335,5 +358,5 @@ var Item = React.createClass({
 
 })
 
-React.render(<App/>,
+React.render(<Show/>,
     document.getElementById('outer-container'));
