@@ -324,7 +324,7 @@ var Show = React.createClass({
               <div>
                 <h3>What is this?</h3>
                 <p>
-                  This is an app to accompany the blog post
+                  This is an app creaed by <a href="http://www.jstoebel.com">Jacob Stoebel</a> to accompany the blog post
                   <a href="https://theringer.com/you-can-make-the-next-great-tv-show-heres-how-ad9c56e14ef1#.pln871rg4"> You Can Make the Next Great TV Show — Here’s How</a>
                 </p>
 
