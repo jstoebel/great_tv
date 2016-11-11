@@ -1,121 +1,114 @@
-
-var Item = React.createClass({
-
-})
-
-var Category = React.createClass({
-
-})
+console.log(store.enabled)
 
 var App = React.createClass({
 
-  getInitialState: function(){
-    return({
-      "data": {
-      "talent": [
-        {"name":"Jim Parsons ", "price":100, "category": "talent", "on": false},
-        {"name":"Kaley Cuoco ", "price":100, "category": "talent", "on": false},
-        {"name":"Johnny Galecki ", "price":100, "category": "talent", "on": false},
-        {"name":"Lauren Graham ", "price":75, "category": "talent", "on": false},
-        {"name":"Alexis Bledel ", "price":75, "category": "talent", "on": false},
-        {"name":"Mark Harmon ", "price":52.5, "category": "talent", "on": false},
-        {"name":"Kevin Spacey ", "price":50, "category": "talent", "on": false},
-        {"name":"Peter Dinklage ", "price":50, "category": "talent", "on": false},
-        {"name":"Lena Headey ", "price":50, "category": "talent", "on": false},
-        {"name":"Kit Harington ", "price":50, "category": "talent", "on": false},
-        {"name":"Emilia Clarke ", "price":50, "category": "talent", "on": false},
-        {"name":"Nikolaj Coster-Waldau ", "price":50, "category": "talent", "on": false},
-        {"name":"Claire Danes ", "price":45, "category": "talent", "on": false},
-        {"name":"Mariska Hargitay ", "price":45, "category": "talent", "on": false},
-        {"name":"Dwayne Johnson ", "price":40, "category": "talent", "on": false},
-        {"name":"Ellen Pompeo ", "price":40, "category": "talent", "on": false},
-        {"name":"Joel Kinnaman ", "price":35, "category": "talent", "on": false},
-        {"name":"Drew Barrymore ", "price":35, "category": "talent", "on": false},
-        {"name":"Emma Stone ", "price":35, "category": "talent", "on": false},
-        {"name":"Jonah Hill ", "price":35, "category": "talent", "on": false},
-        {"name":"Reese Witherspoon ", "price":35, "category": "talent", "on": false},
-        {"name":"Nicole Kidman ", "price":35, "category": "talent", "on": false},
-        {"name":"Nancy Cartwright (Bart Simpson)", "price":31.5, "category": "talent", "on": false},
-        {"name":"Dan Castellaneta (Homer Simpson)", "price":31.5, "category": "talent", "on": false},
-        {"name":"Julie Kavner (Marge Simpson)", "price":31.5, "category": "talent", "on": false},
-        {"name":"Yeardley Smith (Lisa Simpson)", "price":31.5, "category": "talent", "on": false},
-        {"name":"Kiefer Sutherland ", "price":30, "category": "talent", "on": false},
-        {"name":"Michael Weatherly ", "price":30, "category": "talent", "on": false},
-        {"name":"Jeffrey Tambor ", "price":27.5, "category": "talent", "on": false},
-        {"name":"Naomi Watts ", "price":27.5, "category": "talent", "on": false},
-        {"name":"Sarah Jessica Parker ", "price":27.5, "category": "talent", "on": false},
-        {"name":"Hugh Laurie ", "price":27.5, "category": "talent", "on": false},
-        {"name":"Julia Louis-Dreyfus ", "price":25, "category": "talent", "on": false},
-        {"name":"Tim Allen ", "price":25, "category": "talent", "on": false},
-        {"name":"Patricia Heaton ", "price":25, "category": "talent", "on": false},
-        {"name":"Julie Bowen ", "price":25, "category": "talent", "on": false},
-        {"name":"Ty Burrell ", "price":25, "category": "talent", "on": false},
-        {"name":"Jesse Tyler Ferguson ", "price":25, "category": "talent", "on": false},
-        {"name":"Eric Stonestreet ", "price":25, "category": "talent", "on": false},
-        {"name":"Sofia Vergara ", "price":25, "category": "talent", "on": false},
-        {"name":"Daniel Craig ", "price":25, "category": "talent", "on": false},
-        {"name":"Clive Owen ", "price":25, "category": "talent", "on": false},
-        {"name":"Viola Davis ", "price":25, "category": "talent", "on": false},
-        {"name":"James Spader ", "price":25, "category": "talent", "on": false},
-        {"name":"Billy Bob Thornton ", "price":25, "category": "talent", "on": false},
-        {"name":"Kerry Washington ", "price":25, "category": "talent", "on": false},
-        {"name":"Ted Danson ", "price":22.5, "category": "talent", "on": false},
-        {"name":"Aaron Paul ", "price":22.5, "category": "talent", "on": false},
-        {"name":"Kevin James ", "price":20, "category": "talent", "on": false},
-        {"name":"Matt LeBlanc ", "price":20, "category": "talent", "on": false},
-        {"name":"Tom Selleck ", "price":20, "category": "talent", "on": false},
-        {"name":"Angie Harmon ", "price":18.5, "category": "talent", "on": false},
-        {"name":"Wentworth Miller ", "price":17.5, "category": "talent", "on": false},
-        {"name":"Dominic Purcell ", "price":17.5, "category": "talent", "on": false},
-        {"name":"Sarah Wayne Callies ", "price":17.5, "category": "talent", "on": false},
-        {"name":"Michelle Monaghan ", "price":17.5, "category": "talent", "on": false},
-        {"name":"Evan Rachel Wood ", "price":17.5, "category": "talent", "on": false},
-        {"name":"Thandie Newton ", "price":17.5, "category": "talent", "on": false},
-        {"name":"Jeffrey Wright ", "price":17.5, "category": "talent", "on": false},
-        {"name":"James Marsden ", "price":17.5, "category": "talent", "on": false},
-        {"name":"Ingrid Bolso Berdal ", "price":17.5, "category": "talent", "on": false},
-        {"name":"Luke Hemsworth ", "price":17.5, "category": "talent", "on": false},
-        {"name":"Sidse Babett Knudsen ", "price":17.5, "category": "talent", "on": false},
-        {"name":"Simon Quarterman ", "price":17.5, "category": "talent", "on": false},
-        {"name":"Rodrigo Santoro ", "price":17.5, "category": "talent", "on": false},
-        {"name":"Angela Sarafyan ", "price":17.5, "category": "talent", "on": false},
-        {"name":"Shannon Woodward ", "price":17.5, "category": "talent", "on": false},
-        {"name":"Ed Harris ", "price":17.5, "category": "talent", "on": false},
-        {"name":"Anthony Hopkins ", "price":17.5, "category": "talent", "on": false},
-        {"name":"Taraji P. Henson ", "price":17.5, "category": "talent", "on": false},
-        {"name":"Terrence Howard ", "price":17.5, "category": "talent", "on": false},
-        {"name":"Keri Russell ", "price":17.5, "category": "talent", "on": false},
-        {"name":"Jensen Ackles ", "price":17.5, "category": "talent", "on": false},
-        {"name":"Rob Lowe ", "price":17.5, "category": "talent", "on": false},
-        {"name":"Mandy Patinkin ", "price":15, "category": "talent", "on": false},
-        {"name":"Mindy Kaling ", "price":14, "category": "talent", "on": false},
-        {"name":"Zooey Deschanel ", "price":13, "category": "talent", "on": false},
-        {"name":"Scott Bakula ", "price":13, "category": "talent", "on": false},
-        {"name":"Téa Leoni ", "price":13, "category": "talent", "on": false},
-        {"name":"Kristen Bell ", "price":12.5, "category": "talent", "on": false},
-        {"name":"America Ferrera ", "price":12.5, "category": "talent", "on": false},
-        {"name":"Jennifer Jason Leigh ", "price":12.5, "category": "talent", "on": false},
-        {"name":"Amy Landecker ", "price":10, "category": "talent", "on": false},
-        {"name":"Jay Duplass ", "price":10, "category": "talent", "on": false},
-        {"name":"Gaby Hoffmann ", "price":10, "category": "talent", "on": false},
-        {"name":"Judith Light ", "price":10, "category": "talent", "on": false},
-        {"name":"Anthony Anderson ", "price":10, "category": "talent", "on": false},
-        {"name":"Andre Braugher ", "price":10, "category": "talent", "on": false},
-        {"name":"Geena Davis ", "price":10, "category": "talent", "on": false},
-        {"name":"Kyle Chandler ", "price":10, "category": "talent", "on": false},
-        {"name":"Sam Heughan ", "price":10, "category": "talent", "on": false},
-        {"name":"Caitriona Balfe ", "price":10, "category": "talent", "on": false},
-        {"name":"Michael Sheen ", "price":10, "category": "talent", "on": false},
-        {"name":"Lizzy Caplan ", "price":10, "category": "talent", "on": false},
-        {"name":"Jeff Garlin ", "price":9, "category": "talent", "on": false},
-        {"name":"Tracee Ellis Ross ", "price":8, "category": "talent", "on": false},
-        {"name":"Abigail Spencer ", "price":7.5, "category": "talent", "on": false},
-        {"name":"Gina Rodriguez ", "price":6, "category": "talent", "on": false},
-        {"name":"Bryshere Y. Gray ", "price":2, "category": "talent", "on": false},
-        {"name":"Jussie Smollett ", "price":2, "category": "talent", "on": false},
-        {"name":"Trai Byers ", "price":2, "category": "talent", "on": false}
-      ],
-      "timePeriod":[
+  componentWillMount: function(){
+    var data = [
+      {"category": "Talent", "data": [
+        {"name":"Jim Parsons ", "price":100, "category": "talent", "on": false },
+        {"name":"Kaley Cuoco ", "price":100, "category": "talent", "on": false },
+        {"name":"Johnny Galecki ", "price":100, "category": "talent", "on": false },
+        {"name":"Lauren Graham ", "price":75, "category": "talent", "on": false },
+        {"name":"Alexis Bledel ", "price":75, "category": "talent", "on": false },
+        {"name":"Mark Harmon ", "price":52.5, "category": "talent", "on": false },
+        {"name":"Kevin Spacey ", "price":50, "category": "talent", "on": false },
+        {"name":"Peter Dinklage ", "price":50, "category": "talent", "on": false },
+        {"name":"Lena Headey ", "price":50, "category": "talent", "on": false },
+        {"name":"Kit Harington ", "price":50, "category": "talent", "on": false },
+        {"name":"Emilia Clarke ", "price":50, "category": "talent", "on": false },
+        {"name":"Nikolaj Coster-Waldau ", "price":50, "category": "talent", "on": false },
+        {"name":"Claire Danes ", "price":45, "category": "talent", "on": false },
+        {"name":"Mariska Hargitay ", "price":45, "category": "talent", "on": false },
+        {"name":"Dwayne Johnson ", "price":40, "category": "talent", "on": false },
+        {"name":"Ellen Pompeo ", "price":40, "category": "talent", "on": false },
+        {"name":"Joel Kinnaman ", "price":35, "category": "talent", "on": false },
+        {"name":"Drew Barrymore ", "price":35, "category": "talent", "on": false },
+        {"name":"Emma Stone ", "price":35, "category": "talent", "on": false },
+        {"name":"Jonah Hill ", "price":35, "category": "talent", "on": false },
+        {"name":"Reese Witherspoon ", "price":35, "category": "talent", "on": false },
+        {"name":"Nicole Kidman ", "price":35, "category": "talent", "on": false },
+        {"name":"Nancy Cartwright (Bart Simpson)", "price":31.5, "category": "talent", "on": false },
+        {"name":"Dan Castellaneta (Homer Simpson)", "price":31.5, "category": "talent", "on": false },
+        {"name":"Julie Kavner (Marge Simpson)", "price":31.5, "category": "talent", "on": false },
+        {"name":"Yeardley Smith (Lisa Simpson)", "price":31.5, "category": "talent", "on": false },
+        {"name":"Kiefer Sutherland ", "price":30, "category": "talent", "on": false },
+        {"name":"Michael Weatherly ", "price":30, "category": "talent", "on": false },
+        {"name":"Jeffrey Tambor ", "price":27.5, "category": "talent", "on": false },
+        {"name":"Naomi Watts ", "price":27.5, "category": "talent", "on": false },
+        {"name":"Sarah Jessica Parker ", "price":27.5, "category": "talent", "on": false },
+        {"name":"Hugh Laurie ", "price":27.5, "category": "talent", "on": false },
+        {"name":"Julia Louis-Dreyfus ", "price":25, "category": "talent", "on": false },
+        {"name":"Tim Allen ", "price":25, "category": "talent", "on": false },
+        {"name":"Patricia Heaton ", "price":25, "category": "talent", "on": false },
+        {"name":"Julie Bowen ", "price":25, "category": "talent", "on": false },
+        {"name":"Ty Burrell ", "price":25, "category": "talent", "on": false },
+        {"name":"Jesse Tyler Ferguson ", "price":25, "category": "talent", "on": false },
+        {"name":"Eric Stonestreet ", "price":25, "category": "talent", "on": false },
+        {"name":"Sofia Vergara ", "price":25, "category": "talent", "on": false },
+        {"name":"Daniel Craig ", "price":25, "category": "talent", "on": false },
+        {"name":"Clive Owen ", "price":25, "category": "talent", "on": false },
+        {"name":"Viola Davis ", "price":25, "category": "talent", "on": false },
+        {"name":"James Spader ", "price":25, "category": "talent", "on": false },
+        {"name":"Billy Bob Thornton ", "price":25, "category": "talent", "on": false },
+        {"name":"Kerry Washington ", "price":25, "category": "talent", "on": false },
+        {"name":"Ted Danson ", "price":22.5, "category": "talent", "on": false },
+        {"name":"Aaron Paul ", "price":22.5, "category": "talent", "on": false },
+        {"name":"Kevin James ", "price":20, "category": "talent", "on": false },
+        {"name":"Matt LeBlanc ", "price":20, "category": "talent", "on": false },
+        {"name":"Tom Selleck ", "price":20, "category": "talent", "on": false },
+        {"name":"Angie Harmon ", "price":18.5, "category": "talent", "on": false },
+        {"name":"Wentworth Miller ", "price":17.5, "category": "talent", "on": false },
+        {"name":"Dominic Purcell ", "price":17.5, "category": "talent", "on": false },
+        {"name":"Sarah Wayne Callies ", "price":17.5, "category": "talent", "on": false },
+        {"name":"Michelle Monaghan ", "price":17.5, "category": "talent", "on": false },
+        {"name":"Evan Rachel Wood ", "price":17.5, "category": "talent", "on": false },
+        {"name":"Thandie Newton ", "price":17.5, "category": "talent", "on": false },
+        {"name":"Jeffrey Wright ", "price":17.5, "category": "talent", "on": false },
+        {"name":"James Marsden ", "price":17.5, "category": "talent", "on": false },
+        {"name":"Ingrid Bolso Berdal ", "price":17.5, "category": "talent", "on": false },
+        {"name":"Luke Hemsworth ", "price":17.5, "category": "talent", "on": false },
+        {"name":"Sidse Babett Knudsen ", "price":17.5, "category": "talent", "on": false },
+        {"name":"Simon Quarterman ", "price":17.5, "category": "talent", "on": false },
+        {"name":"Rodrigo Santoro ", "price":17.5, "category": "talent", "on": false },
+        {"name":"Angela Sarafyan ", "price":17.5, "category": "talent", "on": false },
+        {"name":"Shannon Woodward ", "price":17.5, "category": "talent", "on": false },
+        {"name":"Ed Harris ", "price":17.5, "category": "talent", "on": false },
+        {"name":"Anthony Hopkins ", "price":17.5, "category": "talent", "on": false },
+        {"name":"Taraji P. Henson ", "price":17.5, "category": "talent", "on": false },
+        {"name":"Terrence Howard ", "price":17.5, "category": "talent", "on": false },
+        {"name":"Keri Russell ", "price":17.5, "category": "talent", "on": false },
+        {"name":"Jensen Ackles ", "price":17.5, "category": "talent", "on": false },
+        {"name":"Rob Lowe ", "price":17.5, "category": "talent", "on": false },
+        {"name":"Mandy Patinkin ", "price":15, "category": "talent", "on": false },
+        {"name":"Mindy Kaling ", "price":14, "category": "talent", "on": false },
+        {"name":"Zooey Deschanel ", "price":13, "category": "talent", "on": false },
+        {"name":"Scott Bakula ", "price":13, "category": "talent", "on": false },
+        {"name":"Téa Leoni ", "price":13, "category": "talent", "on": false },
+        {"name":"Kristen Bell ", "price":12.5, "category": "talent", "on": false },
+        {"name":"America Ferrera ", "price":12.5, "category": "talent", "on": false },
+        {"name":"Jennifer Jason Leigh ", "price":12.5, "category": "talent", "on": false },
+        {"name":"Amy Landecker ", "price":10, "category": "talent", "on": false },
+        {"name":"Jay Duplass ", "price":10, "category": "talent", "on": false },
+        {"name":"Gaby Hoffmann ", "price":10, "category": "talent", "on": false },
+        {"name":"Judith Light ", "price":10, "category": "talent", "on": false },
+        {"name":"Anthony Anderson ", "price":10, "category": "talent", "on": false },
+        {"name":"Andre Braugher ", "price":10, "category": "talent", "on": false },
+        {"name":"Geena Davis ", "price":10, "category": "talent", "on": false },
+        {"name":"Kyle Chandler ", "price":10, "category": "talent", "on": false },
+        {"name":"Sam Heughan ", "price":10, "category": "talent", "on": false },
+        {"name":"Caitriona Balfe ", "price":10, "category": "talent", "on": false },
+        {"name":"Michael Sheen ", "price":10, "category": "talent", "on": false },
+        {"name":"Lizzy Caplan ", "price":10, "category": "talent", "on": false },
+        {"name":"Jeff Garlin ", "price":9, "category": "talent", "on": false },
+        {"name":"Tracee Ellis Ross ", "price":8, "category": "talent", "on": false },
+        {"name":"Abigail Spencer ", "price":7.5, "category": "talent", "on": false },
+        {"name":"Gina Rodriguez ", "price":6, "category": "talent", "on": false },
+        {"name":"Bryshere Y. Gray ", "price":2, "category": "talent", "on": false },
+        {"name":"Jussie Smollett ", "price":2, "category": "talent", "on": false },
+        {"name":"Trai Byers ", "price":2, "category": "talent", "on": false }
+      ]},
+
+      {"category": "Time Period", "data": [
         {"name":"Future ", "price":100,"category":"Time Period","on": false},
         {"name":"Near (less than 25)", "price":50,"category":"Time Period","on": false},
         {"name":"Present day ", "price":5,"category":"Time Period","on": false},
@@ -130,8 +123,8 @@ var App = React.createClass({
         {"name":"Human history BCE ", "price":85,"category":"Time Period","on": false},
         {"name":"Ice Age ", "price":90,"category":"Time Period","on": false},
         {"name":"Prehistoric ", "price":95,"category":"Time Period","on": false},
-      ],
-      "setting": [
+      ]},
+      {"category": "Setting", "data":[
         {"name":"New York ", "price":65,"category":"Setting","on": false},
         {"name":"Los Angeles ", "price":55,"category":"Setting","on": false},
         {"name":"Chicago ", "price":45,"category":"Setting","on": false},
@@ -152,8 +145,8 @@ var App = React.createClass({
         {"name":"School ", "price":25,"category":"Setting","on": false},
         {"name":"Empty room ", "price":10,"category":"Setting","on": false},
         {"name":"Add “apocalyptic” to any setting ", "price":70,"category":"Setting","on": false},
-      ],
-      "specialEffects": [
+      ]},
+      {"category": "Special Effects", "data":[
         {"name":"Dinosaurs ", "price":100,"category":"Special Effects","on": false},
         {"name":"Aliens ", "price":75,"category":"Special Effects","on": false},
         {"name":"Fast zombies ", "price":65,"category":"Special Effects","on": false},
@@ -167,8 +160,8 @@ var App = React.createClass({
         {"name":"Nonfictional domestic animals ", "price":30,"category":"Special Effects","on": false},
         {"name":"Large-scale battle scenes ", "price":75,"category":"Special Effects","on": false},
         {"name":"Flying ", "price":25,"category":"Special Effects","on": false},
-      ],
-      "intProperty": [
+      ]},
+      {"category": "Pre-existing Intellectual Property", "data": [
         {"name":"Marvel ", "price":100,"category":"Pre-existing Intellectual Property","on": false},
         {"name":"Star Wars universe ", "price":100,"category":"Pre-existing Intellectual Property","on": false},
         {"name":"Batman ", "price":95,"category":"Pre-existing Intellectual Property","on": false},
@@ -183,8 +176,8 @@ var App = React.createClass({
         {"name":"Other TV IP ", "price":50,"category":"Pre-existing Intellectual Property","on": false},
         {"name":"Other book/comic IP ", "price":50,"category":"Pre-existing Intellectual Property","on": false},
         {"name":"IP miscellany ", "price":50,"category":"Pre-existing Intellectual Property","on": false},
-      ],
-      "misc": [
+      ]},
+      {"cateogry": "Misc", "data": [
         {"name":"Off-the-board actor (e.g., Denzel Washington, Meryl Streep, etc.) ", "price":150,"category":"Misc","on": false},
         {"name":"Name director ", "price":80,"category":"Misc","on": false},
         {"name":"Name director (pilot-only)", "price":5,"category":"Misc","on": false},
@@ -202,24 +195,145 @@ var App = React.createClass({
         {"name":"“Gritty” ", "price":12,"category":"Misc","on": false},
         {"name":"Character receives the newspaper a day early ", "price":6,"category":"Misc","on": false},
       ]}
-    }) // return
+    ]
+
+    store.set("data", data)
+    store.set("total", 0)
   }, // getInitialState
+
+  eachCategory: function(category, i){
+    return(
+      <Category
+        key={i}
+        id={i}
+        data={category.data}
+        name={category.category}
+      >
+      </Category>
+    )
+  },
 
   render: function(){
 
+    console.log("render app!")
     return(
-      <div className="app-container">
-        <div className="total">
-        </div>
+      <div className="container">
+        <div className="row">
+          <div className="col-xs-12 col-md-6">
+            <div className="well">
+            {store.get("data").map(this.eachCategory)}
+            </div>
+          </div>
 
-        {this.state.data}
+          <div className="col-xs-12 col-md-6">
+            <div className="well fixed">
+              <h3>Total Price</h3>
+              <h3 id="total">{store.get("total")}</h3>
+            </div>
+          </div>
+
+        </div>
 
       </div>
     )
+  }
+})
 
+var Category = React.createClass({
+
+  spam: function(){
+    console.log("hello from Category!")
+  },
+
+  getInitialState: function(){
+    return({"open": false})
+  },
+
+  openPanel: function(){
+    var isOpen = this.state.open
+    console.log(isOpen)
+    this.setState({"open": !isOpen})
+  },
+
+  eachItem: function(item, i){
+
+    return(
+      <Item
+        index={i}
+        key={i}
+        categoryId={this.props.id}
+        id={i}
+        data={item}
+      >
+      </Item>
+    )
+  },
+
+  render: function(){
+    // example structure:
+    // {"cateogry": "Misc", "data": [
+    //   {"name":"Off-the-board actor (e.g., Denzel Washington, Meryl Streep, etc.) ", "price":150,"category":"Misc","on": false},
+    //   {"name":"Name director ", "price":80,"category":"Misc","on": false},
+    //   .
+    //   .
+    //   .
+    // ]}
+    return (
+      <div className="accordion-wrapper">
+        <div
+          className="accordion"
+          onClick={this.openPanel}>
+          <h3>{this.props.name}</h3>
+        </div>
+        <div
+          className={"panel" + (this.state.open ? "show" : "")}>
+          {this.props.data.map(this.eachItem)}
+        </div>
+      </div>
+    )
+  }
+})
+
+var Item = React.createClass({
+
+  setTotal: function(total){
+    $("#total").text(total)
+  },
+
+  toggleState: function(){
+    // update the store
+    var data = store.get("data")
+    var record = data[this.props.categoryId].data[this.props.id]
+    record.on = !record.on
+    store.set("data", data)
+
+    // change the total
+    var total = store.get("total")
+    if (record.on){
+      total += record.price
+    } else {
+      total -= record.price
+    }
+    store.set("total", total)
+    this.setTotal(total)
+  },
+
+  render: function(){
+    console.log("render item!")
+    return (
+      <div className="item">
+        <label>{this.props.data.name}</label>
+        	<input
+            type="checkbox"
+            checked={this.props.on}
+            onClick={this.toggleState}
+          >
+          </input>
+      </div>
+    )
   }
 
 })
 
 React.render(<App/>,
-    document.getElementById('container'));
+    document.getElementById('outer-container'));
